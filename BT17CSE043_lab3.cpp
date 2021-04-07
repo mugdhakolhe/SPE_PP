@@ -694,7 +694,7 @@ int main ()
     t6=clock();
     Trapdoor(w,words);  //Applying trapdoor in one word
     t7 = clock();
-    
+    cout<<endl<<"=================================================================="<<endl;
     if(Test(n))     // Checking if the word is present or not 
     {
         cout<<"\nWord :"<<w <<" is found"<<endl;
