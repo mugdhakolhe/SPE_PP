@@ -15,5 +15,5 @@ Output :  1 - If the word to be searched wj is found in word dataset wi
 
 To run the program :
 
-- $g++ SPE_PP.cpp -lpbc -lgmp
+- $g++ BT17CSE043_lab3.cpp -lpbc -lgmp
 - $./a.out    
