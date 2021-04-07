@@ -13,5 +13,6 @@ Output :  1 - If the word to be searched wj is found in word dataset wi
           0 - If the word to be searched wj is not found in word dataset wi
           The output also displays the time taken by each function used in scheme
 
-To run the program : g++ SPE_PP.cpp -lpbc -lgmp
-                   : ./a.out    
+To run the program :
+$g++ SPE_PP.cpp -lpbc -lgmp
+$./a.out    
