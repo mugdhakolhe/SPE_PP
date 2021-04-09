@@ -8,9 +8,9 @@ Functions :
 3. **SPE_PP** -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates theciphertext dataset C of W.
 4. **Trapdoor** -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates the ciphertext dataset C of W.
 5. **Test** - : It takes as input the public parameter Para, the trapdoor Twj of wj and the keyword ciphertext set C, and outputs 1 if the ciphertext Cwi and Twj contain the same keyword and otherwise outputs 0.
-            
-            For test purpose:
-            E3 = E2/E1 = e(riP, h2(wj)abP) must be equal to C3wi
+
+For test purpose:
+E3 = E2/E1 = e(riP, h2(wj)abP) must be equal to C3wi
             
 Output :  1 - If the word to be searched wj is found in word dataset wi
           0 - If the word to be searched wj is not found in word dataset wi
@@ -24,7 +24,9 @@ To run the program :
 
 Output:
 mugdha@LAPTOP-1ME15EK1:~$ cd Codes
+
 mugdha@LAPTOP-1ME15EK1:~/Codes$ g++ BT17CSE043_lab3.cpp -lgmp -lpbc
+
 mugdha@LAPTOP-1ME15EK1:~/Codes$ ./a.out
 
 =======================================================================
