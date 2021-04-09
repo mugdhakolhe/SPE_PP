@@ -2,13 +2,15 @@
 
 Topic : An efficient and secure searchable public key encryption scheme with privacy protection for cloud storage
 Functions :
-1. Setup - It takes as input the security parameter λ and generates the public parameters Para.
-2. KeyGen - It takes as input the public parameters Para and generates the two public/secret key pairs (P Ku,sku), (P Ks,sks) for DU and DS, respectively
-3. SPE_PP -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates theciphertext dataset C of W.
-4. Trapdoor -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates the ciphertext dataset C of W.
-5. Test - : It takes as input the public parameter Para, the trapdoor Twj of wj and the keyword ciphertext set C, and outputs 1 if the ciphertext Cwi and Twj contain the same keyword and otherwise outputs 0.
-            For test purpose :
-            E3 = E2/E1 = e(ri P, h2(wj)abP)
+1. **Setup** - It takes as input the security parameter λ and generates the public parameters Para.
+2. **KeyGen** - It takes as input the public parameters Para and generates the two public/secret key pairs (P Ku,sku), (P Ks,sks) for DU and DS, respectively
+3. **SPE_PP** -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates theciphertext dataset C of W.
+4. **Trapdoor** -  It takes as input the public parameters Para, the DU’s public key P Ku, the DS’s secret key sks and the keyword set W, and generates the ciphertext dataset C of W.
+5. **Test** - : It takes as input the public parameter Para, the trapdoor Twj of wj and the keyword ciphertext set C, and outputs 1 if the ciphertext Cwi and Twj contain the same keyword and otherwise outputs 0.
+            
+            For test purpose:
+            E3 = E2/E1 = e(riP, h2(wj)abP) must be equal to C3wi
+            
 Output :  1 - If the word to be searched wj is found in word dataset wi
           0 - If the word to be searched wj is not found in word dataset wi
           The output also displays the time taken by each function used in scheme
@@ -23,8 +25,10 @@ Output:
 mugdha@LAPTOP-1ME15EK1:~$ cd Codes
 mugdha@LAPTOP-1ME15EK1:~/Codes$ g++ BT17CSE043_lab3.cpp -lgmp -lpbc
 mugdha@LAPTOP-1ME15EK1:~/Codes$ ./a.out
+
+=======================================================================
 Using type A curve with parameters
-==============================================
+
 type a
 q 1833041266268319746412996063865896151291482573579086155002642321460690416863885692883054230261564139077272687636995358800447
 h 2508434264301168409859485513796565170462850235152763129633075720126224451008
@@ -33,9 +37,9 @@ exp2 159
 exp1 138
 sign1 1
 sign0 -1
-==============================================
+
+=======================================================================
 Starting the Setup function
-==============================================
 
 Order of the G1 group : 730751167114595186142829002853739519958614802431
 Element of G1 group g1: [266101345135628824584760455654283614175894608372885838058750009283621322885324126788145360458207847789459763106849376962782, 1771193175290209707085328857332910545929083904956924718842370592916844191873384505344828341991158907587075751485656577958789]
@@ -48,11 +52,9 @@ After hashing element: [16340338078226725492833530306423035326636378244008764569
 Hashed value : 583440739122789602934466188988710661621146859829
 After hashing message: Hello123 using h2 : (0,1)* -> Z*q
 Hashed value : 577731834108699792122126708632270096012528529766
-==============================================
 
+=======================================================================
 Starting the Key generation function
-==============================================
-
 
 Data user public key :  [643783267265472959573760223752611509816638337802094025453434299656982850289854847515034655525137154817938460521887917841643, 1537665885852810264034027193279943585698000923923268442167110980340127066101214642868877399691691111077613966462436163662974]
 
@@ -61,7 +63,8 @@ Data sender public key : [389630771098800607927671832031736897427020276026200295
 Data user secret key :  697817307591313279180559918844330277070791756143
 
 Data sender secret key : 134867195192276087251783199580736684550271990845
-==============================================
+
+
 Enter the size of dataset given by Data Sender
 3
 1 : Enter the word
@@ -76,10 +79,9 @@ hello
 joke
 kol
 
-
-==============================================
+=======================================================================
 Starting the SPE_PP function by DS
-==============================================
+
 
 Random number 577711002694043192998828160941540537506823548897 :
 
@@ -107,22 +109,22 @@ C2w2: [1366947762150241666279916716701078657434181525133206077695931473014762362
 
 C3w2: [1796307414651459106391154506655415849128957931287508930526202285418748495042431605969941520534185423540569138820385556331904, 218781582173550982311229344118463054316509968266628293251917239046314624335018314980287536962368246938653211695743730845250]
 
-
-==============================================
+=======================================================================
 Starting the trapdoor by DU
-==============================================
+
 
 Enter the word to be searched
 hello
-==============================================
+
+=======================================================================
 Starting the Trapdoor by DU
-==============================================
+
 Tw1 : [676310256107920099198550457060476695348685443072050062671355951513124292425989104403584069677724151861078378305210275193204, 1360788034282719767300037317318741587089847772851438593501902428616991067777364172198464233401330788178520991248718111655510]
 Tw2 : [1584318991767445618367000397111287639129679294631188049675447119726544471967464001034979281510476682731628896029514305135669, 84165451570143557110309171253780481056915741031984390213640679483324491549774341883846600605864088288643344786971110375719]
 
-==============================================
+=======================================================================
 Starting the Test by CSP
-==============================================
+
 
 For word number : 1
 
@@ -131,7 +133,7 @@ C3 : [12344213683298876937315789589004688421025036919835664469075961823275951434
 
 Word :hello is found
 
-==================================================================
+=======================================================================
 
 Time taken by Setup function: 0.03125
 Time taken by Key Generation function: 0
@@ -139,5 +141,5 @@ Time taken by SPE_PP function: 0.015625
 Time taken by Trapdoor function: 0
 Time taken by Test function: 0.015625
 
-==================================================================
+=======================================================================
 mugdha@LAPTOP-1ME15EK1:~/Codes$
